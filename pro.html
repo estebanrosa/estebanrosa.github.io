@@ -5,37 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expériences Pro | Esteban ROSA</title>
     <style>
-        /* CSS IDENTIQUE POUR GARDER LE STYLE */
-        :root { --bg-color: #0f172a; --card-bg: #1e293b; --text-main: #e2e8f0; --text-muted: #94a3b8; --accent: #38bdf8; }
+        :root { --bg-color: #0f172a; --card-bg: #1e293b; --text-main: #e2e8e0; --text-muted: #94a3b8; --accent: #38bdf8; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-top: 80px; }
         
         nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background-color: rgba(15, 23, 42, 0.95); position: fixed; width: 100%; top: 0; border-bottom: 1px solid #334155; z-index: 100; }
-        .logo { font-weight: bold; font-size: 1.2rem; color: var(--accent); }
-        .nav-links a { margin-left: 2rem; font-size: 0.9rem; color: var(--text-muted); }
+        .logo-nav { font-weight: bold; color: var(--accent); text-decoration: none; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--text-muted); font-weight: 500; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-        section { padding: 6rem 10% 4rem; }
-        .section-title { font-size: 2rem; border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 3rem; }
+        .experience-container { padding: 4rem 10%; max-width: 1100px; margin: 0 auto; }
+        .page-title { font-size: 2.5rem; margin-bottom: 3rem; color: var(--accent); border-bottom: 2px solid var(--accent); display: inline-block; }
 
-        /* STYLE SPECIFIQUE PRO */
-        .exp-item { background-color: var(--card-bg); padding: 2rem; margin-bottom: 2rem; border-radius: 8px; border-left: 4px solid var(--accent); }
-        .exp-header { display: flex; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; }
-        .company { font-size: 1.3rem; font-weight: bold; color: #fff; }
-        .role { font-size: 1.1rem; color: var(--accent); display: block; margin-bottom: 0.5rem; }
-        .date { color: var(--text-muted); font-style: italic; }
+        .exp-item { background: var(--card-bg); padding: 2.5rem; border-radius: 12px; margin-bottom: 2.5rem; border-left: 4px solid var(--accent); display: flex; gap: 2rem; align-items: flex-start; transition: transform 0.3s ease; }
+        .exp-item:hover { transform: translateX(10px); }
         
-        .task-list { margin-left: 20px; margin-top: 15px; }
-        .task-list li { margin-bottom: 5px; list-style-type: disc; color: #cbd5e1; }
+        .company-logo { width: 100px; height: 100px; object-fit: contain; background: white; padding: 5px; border-radius: 8px; flex-shrink: 0; }
         
-        .tech-tags span { display: inline-block; background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; margin-right: 5px; margin-top: 10px; }
+        .exp-content { flex-grow: 1; }
+        .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+        .company-name { font-size: 1.5rem; font-weight: bold; color: var(--accent); display: block; }
+        .role { font-style: italic; color: var(--text-muted); font-size: 1.1rem; }
+        .date { background: #334155; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; white-space: nowrap; }
+        
+        .task-list { margin: 1.2rem 0; padding-left: 1.2rem; }
+        .task-list li { margin-bottom: 0.6rem; position: relative; list-style: none; }
+        .task-list li::before { content: "▹"; position: absolute; left: -1.2rem; color: var(--accent); }
+
+        .tech-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.5rem; }
+        .tech-tags span { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; border: 1px solid rgba(56, 189, 248, 0.2); }
+
+        footer { text-align: center; padding: 3rem; border-top: 1px solid #334155; color: var(--text-muted); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">ESTEBAN ROSA</div>
+        <a href="index.html" class="logo-nav">ESTEBAN ROSA</a>
         <div class="nav-links">
             <a href="index.html">Accueil</a>
             <a href="formation.html">École</a>
@@ -45,70 +51,79 @@
         </div>
     </nav>
 
-    <section>
-        <h2 class="section-title">Mes Expériences Professionnelles</h2>
+    <section class="experience-container">
+        <h1 class="page-title">Parcours Professionnel</h1>
 
         <div class="exp-item">
-            <div class="exp-header">
-                <div>
-                    <span class="company">OKTEO (Ceyzériat)</span>
-                    <span class="role">Technicien Informatique en Alternance</span>
-                </div>
-                <span class="date">2024 - 2025</span>
+    <img src="logo_alsymex.png" alt="Logo Alsymex" class="company-logo">
+    <div class="exp-content">
+        <div class="exp-header">
+            <div>
+                <span class="company-name">ALSYMEX</span>
+                <span class="role">Stagiaire Technicien Systèmes & Réseaux</span>
             </div>
-            <p>Interventions techniques sur infrastructures clients et maintenance serveur.</p>
-            <ul class="task-list">
-                <li>Préparation et configuration de pare-feu <strong>Stormshield</strong>.</li>
-                <li>Gestion des sauvegardes et restaurations critiques avec <strong>VEEAM</strong>.</li>
-                <li>Montage, installation et préparation de serveurs <strong>Windows Server</strong> (AD, DNS, DHCP).</li>
-                <li>Préparation de NAS Synology et configuration réseau.</li>
-                <li>Support utilisateur et assistance à distance.</li>
-            </ul>
+            <span class="date">Janvier - Février 2026</span>
+        </div>
+        <p>Mise en place d'une infrastructure Wi-Fi invité hautement sécurisée (Solution pfSense + Bornes HPE Instant On).</p>
+        <ul class="task-list">
+            <li>Déploiement et sécurisation d'un pare-feu <strong>pfSense</strong> (Installation ISO, configuration interfaces WAN/LAN).</li>
+            <li>Configuration d'un <strong>Portail Captif</strong> avec génération de vouchers pour les accès temporaires.</li>
+            <li>Segmentation réseau via <strong>VLANs</strong> et migration vers environnement <strong>ESXi</strong>.</li>
+            <li>Rédaction d'une documentation technique complète pour l'exploitation de la solution.</li>
+        </ul>
+
+        <div style="margin-top: 1.5rem; display: flex; gap: 15px; align-items: center;">
             <div class="tech-tags">
-                <span>Windows Server</span><span>Stormshield</span><span>Veeam</span><span>Synology</span><span>XIVO</span>
+                <span>pfSense</span><span>ESXi</span><span>VLAN</span><span>Portail Captif</span>
+            </div>
+            <a href="Documentation_Technique_pfSense_Esteban_Rosa.pdf" target="_blank" style="display: flex; align-items: center; gap: 8px; background: #ef4444; color: white; padding: 8px 16px; border-radius: 6px; font-weight: bold; font-size: 0.9rem; text-decoration: none; transition: 0.3s;">
+                <span style="font-size: 1.2rem;">📄</span> Voir la Documentation Technique
+            </a>
+        </div>
+    </div>
+</div>
+
+        <div class="exp-item">
+            <img src="logo_okteo.png" alt="Logo OKTEO" class="company-logo">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <div>
+                        <span class="company-name">OKTEO</span>
+                        <span class="role">Technicien Informatique (Alternance)</span>
+                    </div>
+                    <span class="date">2024 - 2025</span>
+                </div>
+                <p>Maintien en condition opérationnelle (MCO) de parcs informatiques clients.</p>
+                <ul class="task-list">
+                    <li>Sauvegarde et PRA avec <strong>VEEAM</strong>.</li>
+                    <li>Administration de pare-feux <strong>Stormshield</strong>.</li>
+                    <li>Gestion d'Active Directory (GPO, Users, DNS).</li>
+                    <li>Déploiement de solutions de téléphonie <strong>XIVO</strong>.</li>
+                </ul>
+                <div class="tech-tags">
+                    <span>VEEAM</span><span>Stormshield</span><span>Active Directory</span><span>XIVO</span>
+                </div>
             </div>
         </div>
 
         <div class="exp-item">
-            <div class="exp-header">
-                <div>
-                    <span class="company">Gergonne Industrie (Oyonnax)</span>
-                    <span class="role">Stagiaire Service Informatique</span>
+            <img src="logo_gergonne.png" alt="Logo Gergonne" class="company-logo">
+            <div class="exp-content">
+                <div class="exp-header">
+                    <div>
+                        <span class="company-name">Gergonne Industrie</span>
+                        <span class="role">Stagiaire Service Informatique</span>
+                    </div>
+                    <span class="date">2024</span>
                 </div>
-                <span class="date">2024</span>
-            </div>
-            <p>Participation à la gestion du parc informatique industriel.</p>
-            <ul class="task-list">
-                <li>Migration de parc informatique (Windows 11 vers Windows 10).</li>
-                <li>Assistance de proximité auprès des employés.</li>
-                <li>Observation de configuration de switchs manageables.</li>
-            </ul>
-            <div class="tech-tags">
-                <span>Windows 10/11</span><span>Support N1</span><span>Réseau</span>
+                <p>Support technique de proximité et migration de parc.</p>
+                <ul class="task-list">
+                    <li>Migration massive de postes (Win 11 vers Win 10).</li>
+                    <li>Maintenance hardware et déploiement logiciel.</li>
+                    <li>Observation de configuration sur switchs manageables.</li>
+                </ul>
+                <div class="tech-tags">
+                    <span>Windows 10/11</span><span>Support N1/N2</span><span>Hardware</span>
+                </div>
             </div>
         </div>
-
-        <div class="exp-item">
-            <div class="exp-header">
-                <div>
-                    <span class="company">Shopytech & MP Conception</span>
-                    <span class="role">Stagiaire Technicien</span>
-                </div>
-                <span class="date">2022 - 2023</span>
-            </div>
-            <p>Premières expériences techniques lors du Bac Pro.</p>
-            <ul class="task-list">
-                <li>Diagnostic et réparation de PC portables.</li>
-                <li>Assistance client et initiation aux réseaux locaux.</li>
-                <li>Travail d'équipe en atelier.</li>
-            </ul>
-        </div>
-
-    </section>
-
-    <footer style="text-align: center; padding: 2rem; border-top: 1px solid #334155; color: var(--text-muted);">
-        <p>© 2025 Esteban ROSA - BTS SIO SISR</p>
-    </footer>
-
-</body>
-</html>
