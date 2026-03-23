@@ -5,47 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passions | Esteban ROSA</title>
     <style>
-        /* --- STYLE GLOBAL (SISR Dark Mode) --- */
         :root { --bg-color: #0f172a; --card-bg: #1e293b; --text-main: #e2e8f0; --text-muted: #94a3b8; --accent: #38bdf8; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-top: 100px; }
         
-        /* NAVIGATION */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background-color: rgba(15, 23, 42, 0.95); position: fixed; width: 100%; top: 0; border-bottom: 1px solid #334155; z-index: 100; }
         .logo { font-weight: bold; font-size: 1.2rem; color: var(--accent); }
-        .nav-links a { margin-left: 2rem; font-size: 0.9rem; color: var(--text-muted); }
+        .nav-links a { margin-left: 20px; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-        section { padding: 6rem 10% 4rem; }
-        .section-title { font-size: 2rem; border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 3rem; }
+        .container { padding: 2rem 10%; max-width: 1100px; margin: 0 auto; }
+        .page-title { font-size: 2.5rem; margin-bottom: 3rem; color: var(--accent); border-bottom: 2px solid var(--accent); display: inline-block; }
 
-        /* GRILLE PASSIONS */
-        .passion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .passions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
         
         .passion-card { 
             background: var(--card-bg); 
-            border-radius: 10px; 
+            border-radius: 12px; 
             overflow: hidden; 
             border: 1px solid #334155; 
-            transition: transform 0.3s; 
+            transition: 0.3s;
             display: flex;
             flex-direction: column;
         }
-        .passion-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .passion-card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
         
-        /* IMAGE CONFIGURATION */
+        /* STYLE POUR TES IMAGES PERSOS */
         .passion-img { 
             width: 100%; 
-            height: 200px; 
-            background-color: #334155; 
-            object-fit: cover; /* Important : ça coupe l'image proprement sans l'écraser */
+            height: 220px; /* Un peu plus haut pour mieux voir tes photos */
+            object-fit: cover; /* Recadre proprement */
             border-bottom: 1px solid #334155;
         }
+        
+        .passion-info { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .passion-info h3 { color: var(--accent); margin-bottom: 0.8rem; font-size: 1.4rem; }
+        .passion-info p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .passion-content { padding: 1.5rem; flex-grow: 1; }
-        .passion-content h3 { color: var(--accent); margin-bottom: 10px; font-size: 1.4rem; }
-        .passion-content p { color: #cbd5e1; }
+        footer { text-align: center; padding: 3rem; border-top: 1px solid #334155; color: var(--text-muted); margin-top: 4rem; }
+
+        @media (max-width: 768px) {
+            .container { padding: 2rem 5%; }
+            .passions-grid { grid-template-columns: 1fr; }
+            nav { padding: 1.5rem 5%; }
+        }
     </style>
 </head>
 <body>
@@ -61,39 +64,48 @@
         </div>
     </nav>
 
-    <section>
-        <h2 class="section-title">Centres d'intérêt</h2>
-        <div class="passion-grid">
+    <section class="container">
+        <h1 class="page-title">Mes Centres d'Intérêt</h1>
+
+        <div class="passions-grid">
             
             <div class="passion-card">
-                <img src="setup.jpg" alt="Informatique" class="passion-img">
-                <div class="passion-content">
-                    <h3>L'Informatique & Hardware</h3>
-                    <p>Au-delà des cours, je suis passionné par l'évolution du matériel (composants PC) et les nouvelles technologies. J'aime comprendre comment les machines fonctionnent, du montage physique à l'installation logicielle.</p>
+                <img src="foot.jpg" alt="Photo Football Esteban" class="passion-img">
+                <div class="passion-info">
+                    <h3>Football : Passion & Loisir</h3>
+                    <p>Grand passionné de football, j'apprécie le jeu pour le plaisir et la détente qu'il procure. Je suis également de très près l'actualité et les stratégies des grandes équipes.</p>
                 </div>
             </div>
 
             <div class="passion-card">
-                <img src="foot.jpg" alt="Football" class="passion-img">
-                <div class="passion-content">
-                    <h3>Football</h3>
-                    <p>Pratique en club et supporter. Le sport m'a appris l'importance de la cohésion d'équipe, la stratégie et la persévérance face à la difficulté, des qualités essentielles dans un projet informatique.</p>
+                <img src="gaming.jpg" alt="Photo Gaming Esteban" class="passion-img">
+                <div class="passion-info">
+                    <h3>Jeux Vidéo</h3>
+                    <p>Un hobby essentiel pour décompresser. J'apprécie particulièrement l'immersion, les scénarios travaillés et les challenges stratégiques qu'offrent certains titres.</p>
                 </div>
             </div>
 
-             <div class="passion-card">
-                <img src="musique.jpg" alt="Musique" class="passion-img">
-                <div class="passion-content">
+            <div class="passion-card">
+                <img src="musique.jpg" alt="Photo Musique Esteban" class="passion-img">
+                <div class="passion-info">
                     <h3>Musique</h3>
-                    <p>Une grande passion qui m'accompagne au quotidien. Que ce soit pour la concentration lors de sessions de travail technique ou pour la créativité, la musique occupe une place importante dans ma vie.</p>
+                    <p>La musique m'accompagne au quotidien pour me concentrer et me relaxer. J'écoute des styles variés selon l'ambiance et mes activités.</p>
+                </div>
+            </div>
+
+            <div class="passion-card">
+                <img src="curiosite.jpg" alt="Photo Tech Esteban" class="passion-img">
+                <div class="passion-info">
+                    <h3>Curiosité Digitale</h3>
+                    <p>Formé depuis la Seconde SN, j'ai développé mes compétences informatiques grâce à mes cours et à ma curiosité. J'aime comprendre le fonctionnement des systèmes et me tiens à jour via des vidéos et tutoriels techniques.</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 2rem; border-top: 1px solid #334155; color: var(--text-muted);">
-        <p>© 2025 Esteban ROSA</p>
+    <footer>
+        <p>© 2026 Esteban ROSA - Portfolio SISR</p>
     </footer>
 
 </body>

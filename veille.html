@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Techno | Esteban ROSA</title>
+    <title>Veille Technologique | Esteban ROSA</title>
     <style>
         :root { 
             --bg-color: #0f172a; 
@@ -12,11 +12,19 @@
             --text-muted: #94a3b8; 
             --accent: #38bdf8; 
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-top: 100px; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
-        /* NAVIGATION FIXE */
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            padding-top: 100px; 
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* NAVIGATION */
         nav { 
             display: flex; 
             justify-content: space-between; 
@@ -33,31 +41,109 @@
         .nav-links a { margin-left: 20px; font-weight: 500; color: var(--text-muted); }
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
+        /* CONTENEUR VEILLE */
         .veille-container { padding: 2rem 10%; max-width: 1000px; margin: 0 auto; }
-        .page-title { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent); border-bottom: 2px solid var(--accent); display: inline-block; }
-        .intro { color: var(--text-muted); margin-bottom: 3rem; font-style: italic; }
-
-        .article-card { 
+        .page-title { font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent); border-bottom: 2px solid var(--accent); display: inline-block; }
+        
+        .veille-intro { 
             background: var(--card-bg); 
-            padding: 2rem; 
-            border-radius: 12px; 
-            margin-bottom: 2rem; 
-            border: 1px solid #334155; 
-            transition: 0.3s; 
+            padding: 1.5rem; 
+            border-radius: 8px; 
+            border: 1px dashed #334155; 
+            margin-bottom: 3rem; 
+            color: var(--text-muted); 
         }
-        .article-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        
-        .article-date { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; display: block; }
-        .article-title { font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; }
-        .tag { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 3px 10px; border-radius: 4px; font-size: 0.8rem; margin-right: 10px; }
-        
-        .analysis { background: #0f172a; padding: 1rem; border-radius: 8px; margin-top: 1rem; border-left: 3px solid var(--accent); }
-        .analysis strong { color: var(--accent); }
+        .veille-intro strong { color: var(--text-main); }
 
-        .source-link { display: inline-block; margin-top: 1.5rem; color: var(--accent); font-weight: bold; border-bottom: 1px solid transparent; }
-        .source-link:hover { border-bottom-color: var(--accent); }
+        /* CARTE DOSSIER */
+        .dossier-card { 
+            background: var(--card-bg); 
+            padding: 2.5rem; 
+            border-radius: 12px; 
+            border: 1px solid #334155; 
+            margin-bottom: 2rem; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .dossier-meta { 
+            color: var(--accent); 
+            font-size: 0.9rem; 
+            margin-bottom: 1rem; 
+            display: block; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .dossier-title { font-size: 1.8rem; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.3; }
+        
+        .tags { margin-bottom: 2rem; }
+        .tag { 
+            background: rgba(56, 189, 248, 0.1); 
+            color: var(--accent); 
+            padding: 6px 14px; 
+            border-radius: 6px; 
+            font-size: 0.85rem; 
+            font-weight: bold; 
+            margin-right: 10px; 
+            border: 1px solid rgba(56, 189, 248, 0.2); 
+        }
+        
+        .content-section { 
+            margin-bottom: 2.5rem; 
+            padding-left: 20px; 
+            border-left: 3px solid #334155; 
+        }
+        .content-section h4 { color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.8rem; }
+        .content-section p { color: #cbd5e1; margin-bottom: 15px; }
 
-        footer { text-align: center; padding: 2rem; border-top: 1px solid #334155; color: var(--text-muted); margin-top: 4rem; }
+        /* LIENS SOURCES */
+        .source-link { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px; 
+            color: var(--accent); 
+            font-weight: bold; 
+            font-size: 0.9rem; 
+            background: rgba(56, 189, 248, 0.05); 
+            padding: 10px 18px; 
+            border-radius: 8px; 
+            border: 1px solid rgba(56, 189, 248, 0.2); 
+            transition: 0.3s;
+        }
+        .source-link:hover { 
+            background: rgba(56, 189, 248, 0.15); 
+            transform: translateX(8px); 
+            border-color: var(--accent);
+        }
+
+        .link-arrow { color: var(--accent); font-size: 1.8rem; text-align: center; margin: 1.5rem 0; opacity: 0.6; }
+
+        /* ANALYSE PERSONNELLE */
+        .analysis-box { 
+            background: rgba(15, 23, 42, 0.6); 
+            padding: 1.8rem; 
+            border-radius: 8px; 
+            margin-top: 2rem; 
+            border: 1px solid var(--accent); 
+            position: relative;
+        }
+        .analysis-box::before {
+            content: "💡";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--bg-color);
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+        .analysis-box strong { color: var(--accent); display: block; margin-bottom: 10px; font-size: 1.1rem; }
+
+        footer { text-align: center; padding: 3rem; border-top: 1px solid #334155; color: var(--text-muted); margin-top: 4rem; }
+
+        @media (max-width: 768px) { 
+            .veille-container { padding: 2rem 5%; } 
+            nav { padding: 1.5rem 5%; }
+        }
     </style>
 </head>
 <body>
@@ -75,34 +161,49 @@
 
     <section class="veille-container">
         <h1 class="page-title">Veille Technologique</h1>
-        <p class="intro">Ma veille porte principalement sur la Cybersécurité et l'évolution des infrastructures réseau (SISR).</p>
-
-        <div class="article-card">
-            <span class="article-date">Décembre 2025 | Source : ANSSI</span>
-            <h3 class="article-title">Directive NIS 2 : Renforcement de la Cybersécurité</h3>
-            <div><span class="tag">Réglementation</span><span class="tag">Sécurité</span></div>
-            <p style="margin-top: 1rem; color: #cbd5e1;">La directive NIS 2 élargit les obligations de sécurité à de nombreux nouveaux secteurs (PME, services TIC).</p>
-            <div class="analysis">
-                <strong>Impact métier :</strong> En tant que futur administrateur, cela m'oblige à mettre en place une politique de MFA renforcée et des procédures de signalement d'incidents strictes.
-            </div>
-            <a href="https://cyber.gouv.fr/reglementation/cybersecurite-systemes-dinformation/directives-nis-nis2-et-dispositif-saiv/directive-nis-2/" target="_blank" class="source-link">Lire l'article ANSSI →</a>
+        
+        <div class="veille-intro">
+            <p><strong>Sujet d'étude :</strong> L'évolution des réglementations européennes de cybersécurité et leur impact technique direct sur l'administration des infrastructures critiques.<br>
+            <strong>Outils utilisés :</strong> Flux RSS, Feedly, ANSSI, Cert-FR, et presse spécialisée IT (LeMondeInformatique, ZDNet).</p>
         </div>
 
-        <div class="article-card">
-            <span class="article-date">Septembre 2025 | Source : Cert-FR</span>
-            <h3 class="article-title">Durcissement de l'Active Directory</h3>
-            <div><span class="tag">Windows Server</span><span class="tag">Infrastructure</span></div>
-            <p style="margin-top: 1rem; color: #cbd5e1;">Les nouvelles recommandations pour sécuriser Kerberos et abandonner définitivement NTLMv2.</p>
-            <div class="analysis">
-                <strong>Mon analyse :</strong> L'AD est la cible n°1 des ransomwares. Il est crucial d'appliquer le Tiering Model (séparation des privilèges) pour protéger les comptes admin.
+        <div class="dossier-card">
+            <span class="dossier-meta">Dossier de fond - BTS SIO SISR</span>
+            <h3 class="dossier-title">Sécuriser l'Infrastructure : Quand la législation (NIS 2) impose le durcissement technique (Active Directory)</h3>
+            
+            <div class="tags">
+                <span class="tag">Directive NIS 2</span><span class="tag">Active Directory</span><span class="tag">Cybersécurité</span><span class="tag">Alsymex</span>
             </div>
-            <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="source-link">Consulter le Cert-FR →</a>
+            
+            <div class="content-section">
+                <h4>1. Le cadre légal : La directive européenne NIS 2</h4>
+                <p>La directive NIS 2 impose des obligations strictes de sécurité aux entités "essentielles" ou "importantes". C'est typiquement le cas d'une industrie stratégique comme <strong>Alsymex</strong>. Pour ces entreprises, la cybersécurité devient un enjeu de conformité légale et pénale.</p>
+                <a href="https://cyber.gouv.fr/la-directive-nis-2" target="_blank" class="source-link">
+                    🔗 Dossier officiel ANSSI : Tout savoir sur NIS 2
+                </a>
+            </div>
+
+            <div class="link-arrow">↓ L'impact technique ↓</div>
+
+            <div class="content-section" style="border-left-color: var(--accent);">
+                <h4>2. L'application technique : Durcissement de l'Active Directory</h4>
+                <p>Pour répondre à NIS 2, le cœur du réseau (AD) doit être verrouillé. L'ANSSI recommande l'abandon des protocoles vulnérables (NTLMv2) au profit de Kerberos sécurisé et la mise en place d'un <em>Tiering Model</em> pour isoler les comptes à hauts privilèges.</p>
+                <a href="https://messervices.cyber.gouv.fr/guides/recommandations-pour-ladministration-securisee-des-si-reposant-sur-ad" target="_blank" class="source-link">
+                    🔗 Guide ANSSI : Sécuriser son Active Directory
+                </a>
+            </div>
+            
+            <div class="analysis-box">
+                <strong>Analyse Métier & Conclusion :</strong>
+                <p>En tant que futur administrateur SISR, j'ai compris que la mise en place du MFA ou la segmentation réseau sont des réponses concrètes aux audits NIS 2 pour des groupes comme Alsymex. <strong>Cependant, la vraie leçon de cette veille est que même si une PME n'est pas directement visée par la directive, ces pratiques de durcissement AD doivent devenir le standard absolu pour sécuriser n'importe quel parc informatique classique.</strong> La sécurité d'aujourd'hui pour les infrastructures critiques sera la norme de demain pour tous.</p>
+            </div>
+            
         </div>
 
     </section>
 
     <footer>
-        <p>© 2026 Esteban ROSA - BTS SIO SISR</p>
+        <p>© 2026 Esteban ROSA - Portfolio SISR</p>
     </footer>
 
 </body>
