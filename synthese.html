@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Synthèse E5 | Esteban ROSA</title>
+    <style>
+        :root { --bg-color: #0f172a; --card-bg: #1e293b; --text-main: #e2e8f0; --text-muted: #94a3b8; --accent: #38bdf8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-top: 100px; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background-color: rgba(15, 23, 42, 0.95); position: fixed; width: 100%; top: 0; border-bottom: 1px solid #334155; z-index: 100; }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 20px; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+        .container { padding: 2rem 5%; max-width: 1400px; margin: 0 auto; }
+        .page-title { font-size: 2.5rem; margin-bottom: 2rem; color: var(--accent); border-bottom: 2px solid var(--accent); display: inline-block; }
+
+        /* HEADER INFOS CANDIDAT */
+        .info-header { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid #334155; margin-bottom: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .info-item strong { color: var(--accent); }
+
+        /* TABLEAU RESPONSIVE */
+        .table-wrapper { overflow-x: auto; background: var(--card-bg); border-radius: 8px; border: 1px solid #334155; padding: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        table { width: 100%; border-collapse: collapse; min-width: 1000px; }
+        th, td { border: 1px solid #334155; padding: 12px; text-align: center; vertical-align: middle; }
+        th { background: rgba(15, 23, 42, 0.8); color: var(--accent); font-size: 0.9rem; }
+        .col-realisation { text-align: left; width: 320px; }
+        
+        /* CHECKMARKS */
+        .check { color: #22c55e; font-weight: bold; font-size: 1.2rem; }
+        
+        /* CATEGORY ROWS */
+        .row-category { background: rgba(56, 189, 248, 0.1); font-weight: bold; color: var(--accent); text-align: left; }
+
+        footer { text-align: center; padding: 3rem; color: var(--text-muted); margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ESTEBAN ROSA</div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="formation.html">École</a>
+            <a href="pro.html">Expériences Pro</a>
+            <a href="veille.html">Veille Techno</a>
+            <a href="passions.html">Passions</a>
+            <a href="synthese.html" class="active">E5</a>
+        </div>
+    </nav>
+
+    <section class="container">
+        <h1 class="page-title">Tableau de Synthèse E5</h1>
+
+        <div class="info-header">
+            <div class="info-item"><strong>NOM et prénom :</strong> ROSA Esteban</div>
+            <div class="info-item"><strong>N° candidat :</strong> 100371651GK</div>
+            <div class="info-item"><strong>Centre de formation :</strong> Lycée Joseph Marie Carriat</div>
+            <div class="info-item"><strong>Option :</strong> SISR</div>
+            <div class="info-item" style="grid-column: span 2;"><strong>URL du portfolio :</strong> <a href="https://estebanrosa.github.io/" target="_blank" style="color:var(--text-main);">https://estebanrosa.github.io/</a></div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-realisation">Réalisations professionnelles</th>
+                        <th>Période</th>
+                        <th>Gérer le patrimoine informatique</th>
+                        <th>Répondre aux incidents / assistance</th>
+                        <th>Développer la présence en ligne</th>
+                        <th>Travailler en mode projet</th>
+                        <th>Mettre à disposition un service</th>
+                        <th>Organiser son développement pro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8" class="row-category">Réalisations en cours de formation (Lycée Carriat)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-realisation"><strong>Lab Infrastructure Sécurisée</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Déploiement Windows Server (AD, DNS), pare-feu pfSense et segmentation VLAN.</span></td>
+                        <td>Sept 25 - Mars 26</td>
+                        <td class="check">✓</td>
+                        <td></td>
+                        <td></td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="col-realisation"><strong>Portfolio & Veille Techno</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Création du site web professionnel et dossier de veille sur la norme européenne NIS 2.</span></td>
+                        <td>Fév 26 - Mars 26</td>
+                        <td></td>
+                        <td></td>
+                        <td class="check">✓</td>
+                        <td></td>
+                        <td></td>
+                        <td class="check">✓</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="8" class="row-category">Réalisations en milieu professionnel (1ère année en alternance)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-realisation"><strong>Support et Gestion d'infrastructure - OKTEO</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Année complète en alternance validant la 1ère année. Assistance de niveau 1, diagnostic matériel et préparation des postes de travail.</span></td>
+                        <td>Sept 24 - Août 25</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="8" class="row-category">Réalisations en milieu professionnel (Stage 2ème année)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-realisation"><strong>Sécurisation et Administration - ALSYMEX</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Durcissement de l'Active Directory, gestion des accès et mise en conformité des infrastructures critiques.</span></td>
+                        <td>Janv 26 - Mars 26</td>
+                        <td class="check">✓</td>
+                        <td></td>
+                        <td></td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Esteban ROSA - Portfolio SISR</p>
+    </footer>
+
+</body>
+</html>
