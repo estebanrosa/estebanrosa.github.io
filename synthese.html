@@ -18,28 +18,69 @@
         .page-title { font-size: 2.5rem; margin-bottom: 2rem; color: var(--accent); border-bottom: 2px solid var(--accent); display: inline-block; }
 
         /* HEADER INFOS CANDIDAT */
-        .info-header { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid #334155; margin-bottom: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .info-header { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid #334155; margin-bottom: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .info-item { font-size: 1rem; }
         .info-item strong { color: var(--accent); }
+
+        /* BOUTON TELECHARGEMENT */
+        .download-section { text-align: center; margin-bottom: 2.5rem; }
+        .download-btn { 
+            background: var(--accent); 
+            color: #0f172a; 
+            padding: 1rem 2rem; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            text-decoration: none; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px;
+            transition: 0.3s; 
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3); 
+        }
+        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5); }
 
         /* TABLEAU RESPONSIVE */
         .table-wrapper { overflow-x: auto; background: var(--card-bg); border-radius: 8px; border: 1px solid #334155; padding: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         table { width: 100%; border-collapse: collapse; min-width: 1000px; }
-        th, td { border: 1px solid #334155; padding: 12px; text-align: center; vertical-align: middle; }
-        th { background: rgba(15, 23, 42, 0.8); color: var(--accent); font-size: 0.9rem; }
+        th, td { border: 1px solid #334155; padding: 12px; text-align: center; vertical-align: middle; font-size: 0.9rem; }
+        th { background: rgba(15, 23, 42, 0.8); color: var(--accent); }
         .col-realisation { text-align: left; width: 320px; }
         
-        /* CHECKMARKS */
         .check { color: #22c55e; font-weight: bold; font-size: 1.2rem; }
-        
-        /* CATEGORY ROWS */
         .row-category { background: rgba(56, 189, 248, 0.1); font-weight: bold; color: var(--accent); text-align: left; }
 
-        footer { text-align: center; padding: 3rem; color: var(--text-muted); margin-top: 4rem; }
+        footer { text-align: center; padding: 3rem; color: var(--text-muted); margin-top: 4rem; border-top: 1px solid #334155; }
+
+        
+
+        /* CORRECTIONS RESPONSIVE MOBILE */
+        @media (max-width: 768px) {
+            /* On réorganise le menu pour qu'il s'empile */
+            nav { flex-direction: column; padding: 1rem 5%; gap: 10px; }
+            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .nav-links a { margin-left: 0; font-size: 0.9rem; }
+            body { padding-top: 140px; } /* On descend le body car le menu est plus haut */
+
+            .container { padding: 1.5rem 5%; }
+            .page-title { font-size: 2rem; margin-bottom: 1.5rem; }
+
+            /* On empile les infos persos */
+            .info-header { grid-template-columns: 1fr; gap: 10px; padding: 1rem; }
+            .info-item { font-size: 0.9rem; }
+            
+            /* On ajuste le bouton */
+            .download-btn { padding: 0.8rem 1rem; font-size: 0.85rem; width: 100%; box-sizing: border-box; }
+
+            /* On s'assure que le tableau scrolle sans casser la page */
+            .table-wrapper { padding: 0.5rem; border-radius: 4px; }
+            th, td { padding: 8px; font-size: 0.8rem; }
+            .col-realisation { min-width: 250px; } /* Force la colonne de gauche à rester lisible */
+        }
     </style>
 </head>
 <body>
 
-   <nav>
+    <nav>
         <div class="logo">ESTEBAN ROSA</div>
         <div class="nav-links">
             <a href="index.html">Accueil</a>
@@ -47,7 +88,7 @@
             <a href="pro.html">Expériences Pro</a>
             <a href="veille.html">Veille Techno</a>
             <a href="passions.html">Passions</a>
-            <a href="synthese.html">E5</a>
+            <a href="synthese.html" class="active">E5</a>
         </div>
     </nav>
 
@@ -56,10 +97,16 @@
 
         <div class="info-header">
             <div class="info-item"><strong>NOM et prénom :</strong> ROSA Esteban</div>
-            <div class="info-item"><strong>N° candidat :</strong> 100371651GK</div>
+            <div class="info-item"><strong>N° candidat (INE) :</strong> 100371651GK</div>
             <div class="info-item"><strong>Centre de formation :</strong> Lycée Joseph Marie Carriat</div>
             <div class="info-item"><strong>Option :</strong> SISR</div>
-            <div class="info-item" style="grid-column: span 2;"><strong>URL du portfolio :</strong> <a href="https://estebanrosa.github.io/" target="_blank" style="color:var(--text-main);">https://estebanrosa.github.io/</a></div>
+            <div class="info-item" style="grid-column: span 2;"><strong>URL du portfolio :</strong> <a href="https://estebanrosa.github.io/" target="_blank" style="color:var(--text-main); text-decoration: underline;">https://estebanrosa.github.io/</a></div>
+        </div>
+
+        <div class="download-section">
+            <a href="Tableau_E5_ROSA.xlsx" download class="download-btn">
+                <span>📥</span> Télécharger le document de synthèse officiel (.xlsx)
+            </a>
         </div>
 
         <div class="table-wrapper">
@@ -70,7 +117,6 @@
                         <th>Période</th>
                         <th>Gérer le patrimoine informatique</th>
                         <th>Répondre aux incidents / assistance</th>
-                        <th>Développer la présence en ligne</th>
                         <th>Travailler en mode projet</th>
                         <th>Mettre à disposition un service</th>
                         <th>Organiser son développement pro</th>
@@ -78,51 +124,47 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="8" class="row-category">Réalisations en cours de formation (Lycée Carriat)</td>
+                        <td colspan="7" class="row-category">Réalisations en cours de formation (Lycée Carriat)</td>
                     </tr>
                     <tr>
-                        <td class="col-realisation"><strong>Lab Infrastructure Sécurisée</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Déploiement Windows Server (AD, DNS), pare-feu pfSense et segmentation VLAN.</span></td>
-                        <td>Sept 25 - Mars 26</td>
+                        <td class="col-realisation"><strong>Lab Infrastructure Sécurisée</strong><br><small style="color: var(--text-muted);">Windows Server (AD, DNS), pfSense, VLAN.</small></td>
+                        <td>2025 - 2026</td>
                         <td class="check">✓</td>
-                        <td></td>
                         <td></td>
                         <td class="check">✓</td>
                         <td class="check">✓</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td class="col-realisation"><strong>Portfolio & Veille Techno</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Création du site web professionnel et dossier de veille sur la norme européenne NIS 2.</span></td>
-                        <td>Fév 26 - Mars 26</td>
+                        <td class="col-realisation"><strong>Portfolio & Veille Techno</strong><br><small style="color: var(--text-muted);">Site web pro et dossier de veille NIS 2.</small></td>
+                        <td>2026</td>
                         <td></td>
                         <td></td>
-                        <td class="check">✓</td>
                         <td></td>
                         <td></td>
                         <td class="check">✓</td>
                     </tr>
 
                     <tr>
-                        <td colspan="8" class="row-category">Réalisations en milieu professionnel (1ère année en alternance)</td>
+                        <td colspan="7" class="row-category">Réalisations en milieu professionnel (1ère année alternance - OKTEO)</td>
                     </tr>
                     <tr>
-                        <td class="col-realisation"><strong>Support et Gestion d'infrastructure - OKTEO</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Année complète en alternance validant la 1ère année. Assistance de niveau 1, diagnostic matériel et préparation des postes de travail.</span></td>
-                        <td>Sept 24 - Août 25</td>
+                        <td class="col-realisation"><strong>Support et Gestion d'infrastructure</strong><br><small style="color: var(--text-muted);">Assistance N1, diagnostic matériel, préparation postes.</small></td>
+                        <td>2024 - 2025</td>
                         <td class="check">✓</td>
                         <td class="check">✓</td>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
 
                     <tr>
-                        <td colspan="8" class="row-category">Réalisations en milieu professionnel (Stage 2ème année)</td>
+                        <td colspan="7" class="row-category">Réalisations en milieu professionnel (Stage 2ème année - ALSYMEX)</td>
                     </tr>
                     <tr>
-                        <td class="col-realisation"><strong>Sécurisation et Administration - ALSYMEX</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">Durcissement de l'Active Directory, gestion des accès et mise en conformité des infrastructures critiques.</span></td>
-                        <td>Janv 26 - Mars 26</td>
+                        <td class="col-realisation"><strong>Sécurisation et Administration</strong><br><small style="color: var(--text-muted);">Durcissement AD, gestion accès, conformité NIS 2.</small></td>
+                        <td>2026</td>
                         <td class="check">✓</td>
-                        <td></td>
                         <td></td>
                         <td class="check">✓</td>
                         <td class="check">✓</td>

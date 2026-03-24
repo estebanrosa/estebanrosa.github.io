@@ -70,6 +70,30 @@
             .formation-header { justify-content: center; }
             .project-box li { text-align: left; }
         }
+
+        /* CORRECTIONS RESPONSIVE MOBILE */
+        @media (max-width: 768px) {
+            /* On réorganise le menu pour qu'il s'empile */
+            nav { flex-direction: column; padding: 1rem 5%; gap: 10px; }
+            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .nav-links a { margin-left: 0; font-size: 0.9rem; }
+            body { padding-top: 140px; } /* On descend le body car le menu est plus haut */
+
+            .container { padding: 1.5rem 5%; }
+            .page-title { font-size: 2rem; margin-bottom: 1.5rem; }
+
+            /* On empile les infos persos */
+            .info-header { grid-template-columns: 1fr; gap: 10px; padding: 1rem; }
+            .info-item { font-size: 0.9rem; }
+            
+            /* On ajuste le bouton */
+            .download-btn { padding: 0.8rem 1rem; font-size: 0.85rem; width: 100%; box-sizing: border-box; }
+
+            /* On s'assure que le tableau scrolle sans casser la page */
+            .table-wrapper { padding: 0.5rem; border-radius: 4px; }
+            th, td { padding: 8px; font-size: 0.8rem; }
+            .col-realisation { min-width: 250px; } /* Force la colonne de gauche à rester lisible */
+        }
     </style>
 </head>
 <body>
