@@ -5,168 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique | Esteban ROSA</title>
     <style>
-        :root { 
-            --bg-color: #0f172a; 
-            --card-bg: #1e293b; 
-            --text-main: #e2e8f0; 
-            --text-muted: #94a3b8; 
-            --accent: #38bdf8; 
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --bg-color: #0f172a; --card-bg: #1e293b; --text-main: #e2e8f0; --text-muted: #94a3b8; --accent: #38bdf8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-top: 100px; }
         
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
-            line-height: 1.6; 
-            padding-top: 100px; 
-        }
-
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-
-        /* NAVIGATION */
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 1.5rem 10%; 
-            background-color: rgba(15, 23, 42, 0.95); 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            border-bottom: 1px solid #334155; 
-            z-index: 100; 
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background-color: rgba(15, 23, 42, 0.95); position: fixed; width: 100%; top: 0; border-bottom: 1px solid #334155; z-index: 100; }
         .logo { font-weight: bold; font-size: 1.2rem; color: var(--accent); }
-        .nav-links a { margin-left: 20px; font-weight: 500; color: var(--text-muted); }
+        .nav-links a { margin-left: 20px; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-        /* CONTENEUR VEILLE */
-        .veille-container { padding: 2rem 10%; max-width: 1000px; margin: 0 auto; }
-        .page-title { font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent); border-bottom: 2px solid var(--accent); display: inline-block; }
-        
-        .veille-intro { 
-            background: var(--card-bg); 
-            padding: 1.5rem; 
-            border-radius: 8px; 
-            border: 1px dashed #334155; 
-            margin-bottom: 3rem; 
-            color: var(--text-muted); 
-        }
-        .veille-intro strong { color: var(--text-main); }
+        .container { padding: 2rem 5%; max-width: 1200px; margin: 0 auto; }
+        .page-title { font-size: 2.5rem; margin-bottom: 3rem; color: var(--accent); border-bottom: 2px solid var(--accent); display: inline-block; }
 
-        /* CARTE DOSSIER */
-        .dossier-card { 
-            background: var(--card-bg); 
-            padding: 2.5rem; 
-            border-radius: 12px; 
+        /* HEADER VEILLE TECHNO */
+        .veille-header {
+            background: var(--card-bg);
+            border-left: 5px solid var(--accent);
+            padding: 2rem;
+            border-radius: 4px 12px 12px 4px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .veille-sujet {
+            font-size: 1.4rem;
+            color: #fff;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        .veille-sujet strong {
+            color: var(--accent);
+        }
+        .veille-outils {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .badge-outil {
+            background: #0f172a; 
             border: 1px solid #334155; 
-            margin-bottom: 2rem; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .dossier-meta { 
+            padding: 5px 12px; 
+            border-radius: 20px; 
             color: var(--accent); 
-            font-size: 0.9rem; 
-            margin-bottom: 1rem; 
-            display: block; 
-            font-weight: bold; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
+            font-weight: bold;
+            font-size: 0.85rem;
         }
-        .dossier-title { font-size: 1.8rem; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.3; }
-        
-        .tags { margin-bottom: 2rem; }
-        .tag { 
-            background: rgba(56, 189, 248, 0.1); 
-            color: var(--accent); 
-            padding: 6px 14px; 
-            border-radius: 6px; 
-            font-size: 0.85rem; 
-            font-weight: bold; 
-            margin-right: 10px; 
-            border: 1px solid rgba(56, 189, 248, 0.2); 
-        }
-        
-        .content-section { 
-            margin-bottom: 2.5rem; 
-            padding-left: 20px; 
-            border-left: 3px solid #334155; 
-        }
-        .content-section h4 { color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.8rem; }
-        .content-section p { color: #cbd5e1; margin-bottom: 15px; }
 
-        /* LIENS SOURCES */
-        .source-link { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 10px; 
+        /* GRILLE ARTICLES */
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        
+        .article-card { 
+            background: var(--card-bg); 
+            border-radius: 12px; 
+            padding: 1.5rem; 
+            border: 1px solid #334155; 
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        
+        .article-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; display: flex; justify-content: space-between; }
+        .article-source { color: var(--accent); font-weight: bold; }
+        .article-title { font-size: 1.2rem; color: #fff; margin-bottom: 1rem; line-height: 1.4; }
+        .article-desc { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 1.5rem; }
+        
+        .article-link { 
             color: var(--accent); 
-            font-weight: bold; 
+            text-decoration: none; 
+            font-weight: 500; 
             font-size: 0.9rem; 
-            background: rgba(56, 189, 248, 0.05); 
-            padding: 10px 18px; 
-            border-radius: 8px; 
-            border: 1px solid rgba(56, 189, 248, 0.2); 
+            align-self: flex-start; 
+            border: 1px solid var(--accent); 
+            padding: 6px 15px; 
+            border-radius: 6px; 
             transition: 0.3s;
         }
-        .source-link:hover { 
-            background: rgba(56, 189, 248, 0.15); 
-            transform: translateX(8px); 
-            border-color: var(--accent);
-        }
-
-        .link-arrow { color: var(--accent); font-size: 1.8rem; text-align: center; margin: 1.5rem 0; opacity: 0.6; }
-
-        /* ANALYSE PERSONNELLE */
-        .analysis-box { 
-            background: rgba(15, 23, 42, 0.6); 
-            padding: 1.8rem; 
-            border-radius: 8px; 
-            margin-top: 2rem; 
-            border: 1px solid var(--accent); 
-            position: relative;
-        }
-        .analysis-box::before {
-            content: "💡";
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            background: var(--bg-color);
-            padding: 0 10px;
-            font-size: 1.2rem;
-        }
-        .analysis-box strong { color: var(--accent); display: block; margin-bottom: 10px; font-size: 1.1rem; }
-
-        footer { text-align: center; padding: 3rem; border-top: 1px solid #334155; color: var(--text-muted); margin-top: 4rem; }
-
-        @media (max-width: 768px) { 
-            .veille-container { padding: 2rem 5%; } 
-            nav { padding: 1.5rem 5%; }
-        }
+        .article-link:hover { background: var(--accent); color: var(--bg-color); }
 
         /* CORRECTIONS RESPONSIVE MOBILE */
         @media (max-width: 768px) {
-            /* On réorganise le menu pour qu'il s'empile */
             nav { flex-direction: column; padding: 1rem 5%; gap: 10px; }
             .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
             .nav-links a { margin-left: 0; font-size: 0.9rem; }
-            body { padding-top: 140px; } /* On descend le body car le menu est plus haut */
-
+            body { padding-top: 140px; }
             .container { padding: 1.5rem 5%; }
-            .page-title { font-size: 2rem; margin-bottom: 1.5rem; }
-
-            /* On empile les infos persos */
-            .info-header { grid-template-columns: 1fr; gap: 10px; padding: 1rem; }
-            .info-item { font-size: 0.9rem; }
-            
-            /* On ajuste le bouton */
-            .download-btn { padding: 0.8rem 1rem; font-size: 0.85rem; width: 100%; box-sizing: border-box; }
-
-            /* On s'assure que le tableau scrolle sans casser la page */
-            .table-wrapper { padding: 0.5rem; border-radius: 4px; }
-            th, td { padding: 8px; font-size: 0.8rem; }
-            .col-realisation { min-width: 250px; } /* Force la colonne de gauche à rester lisible */
+            .veille-sujet { font-size: 1.2rem; }
+            .articles-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -178,57 +106,69 @@
             <a href="index.html">Accueil</a>
             <a href="formation.html">École</a>
             <a href="pro.html">Expériences Pro</a>
+            <a href="projets.html">Projets</a>
             <a href="veille.html" class="active">Veille Techno</a>
             <a href="passions.html">Passions</a>
-            <a href="synthese.html">E5</a>
-            <a href="projets.html">E6</a>
+            <a href="synthese.html">E6</a>
         </div>
     </nav>
 
-    <section class="veille-container">
+    <section class="container">
         <h1 class="page-title">Veille Technologique</h1>
-        
-        <div class="veille-intro">
-            <p><strong>Sujet d'étude :</strong> L'évolution des réglementations européennes de cybersécurité et leur impact technique direct sur l'administration des infrastructures critiques.<br>
-            <strong>Outils utilisés :</strong> Flux RSS, Feedly, ANSSI, Cert-FR, et presse spécialisée IT (LeMondeInformatique, ZDNet).</p>
+
+        <div class="veille-header">
+            <h2 class="veille-sujet">
+                <strong>Sujet d'étude :</strong> L'évolution des réglementations européennes de cybersécurité (NIS 2) et leur impact technique direct sur l'administration des infrastructures critiques.
+            </h2>
+            <div class="veille-outils">
+                <span>Outils utilisés :</span>
+                <span class="badge-outil">Flux RSS</span>
+                <span class="badge-outil">Feedly</span>
+                <span class="badge-outil">ANSSI / Cert-FR</span>
+                <span class="badge-outil">Presse spécialisée IT</span>
+            </div>
         </div>
 
-        <div class="dossier-card">
-            <span class="dossier-meta">Dossier de fond - BTS SIO SISR</span>
-            <h3 class="dossier-title">Sécuriser l'Infrastructure : Quand la législation (NIS 2) impose le durcissement technique (Active Directory)</h3>
+        <div class="articles-grid">
             
-            <div class="tags">
-                <span class="tag">Directive NIS 2</span><span class="tag">Active Directory</span><span class="tag">Cybersécurité</span><span class="tag">Alsymex</span>
-            </div>
-            
-            <div class="content-section">
-                <h4>1. Le cadre légal : La directive européenne NIS 2</h4>
-                <p>La directive NIS 2 impose des obligations strictes de sécurité aux entités "essentielles" ou "importantes". C'est typiquement le cas d'une industrie stratégique comme <strong>Alsymex</strong>. Pour ces entreprises, la cybersécurité devient un enjeu de conformité légale et pénale.</p>
-                <a href="https://cyber.gouv.fr/la-directive-nis-2" target="_blank" class="source-link">
-                    🔗 Dossier officiel ANSSI : Tout savoir sur NIS 2
-                </a>
+            <!-- ARTICLE 1 -->
+            <div class="article-card">
+                <div class="article-meta">
+                    <span class="article-source">ANSSI</span>
+                    <span>15 Fév 2026</span>
+                </div>
+                <h3 class="article-title">Directive NIS 2 : Nouvelles exigences pour les entités essentielles</h3>
+                <p class="article-desc">Analyse des nouvelles obligations de sécurité pour les OSE (Opérateurs de Services Essentiels). Focus sur les obligations de signalement des incidents et les durcissements des accès Active Directory.</p>
+                <a href="#" target="_blank" class="article-link">Lire l'article ➔</a>
             </div>
 
-            <div class="link-arrow">↓ L'impact technique ↓</div>
+            <!-- ARTICLE 2 -->
+            <div class="article-card">
+                <div class="article-meta">
+                    <span class="article-source">Le Monde Informatique</span>
+                    <span>02 Mars 2026</span>
+                </div>
+                <h3 class="article-title">Comment préparer son infrastructure réseau à NIS 2 ?</h3>
+                <p class="article-desc">Détail des mesures techniques à implémenter : segmentation réseau (VLAN), authentification multifactorielle (MFA) et gestion stricte des privilèges administrateurs.</p>
+                <a href="#" target="_blank" class="article-link">Lire l'article ➔</a>
+            </div>
 
-            <div class="content-section" style="border-left-color: var(--accent);">
-                <h4>2. L'application technique : Durcissement de l'Active Directory</h4>
-                <p>Pour répondre à NIS 2, le cœur du réseau (AD) doit être verrouillé. L'ANSSI recommande l'abandon des protocoles vulnérables (NTLMv2) au profit de Kerberos sécurisé et la mise en place d'un <em>Tiering Model</em> pour isoler les comptes à hauts privilèges.</p>
-                <a href="https://messervices.cyber.gouv.fr/guides/recommandations-pour-ladministration-securisee-des-si-reposant-sur-ad" target="_blank" class="source-link">
-                    🔗 Guide ANSSI : Sécuriser son Active Directory
-                </a>
+            <!-- ARTICLE 3 -->
+            <div class="article-card">
+                <div class="article-meta">
+                    <span class="article-source">Cert-FR</span>
+                    <span>18 Mars 2026</span>
+                </div>
+                <h3 class="article-title">Les sanctions prévues en cas de non-conformité NIS 2</h3>
+                <p class="article-desc">Étude des risques légaux et financiers pour les entreprises ne respectant pas les normes de cybersécurité européennes d'ici la fin de l'année.</p>
+                <a href="#" target="_blank" class="article-link">Lire l'article ➔</a>
             </div>
-            
-            <div class="analysis-box">
-                <strong>Analyse Métier & Conclusion :</strong>
-                <p>En tant que futur administrateur SISR, j'ai compris que la mise en place du MFA ou la segmentation réseau sont des réponses concrètes aux audits NIS 2 pour des groupes comme Alsymex. <strong>Cependant, la vraie leçon de cette veille est que même si une PME n'est pas directement visée par la directive, ces pratiques de durcissement AD doivent devenir le standard absolu pour sécuriser n'importe quel parc informatique classique.</strong> La sécurité d'aujourd'hui pour les infrastructures critiques sera la norme de demain pour tous.</p>
-            </div>
-            
+
         </div>
 
     </section>
 
-    <footer>
+    <footer style="text-align: center; padding: 3rem; color: var(--text-muted); margin-top: 4rem; border-top: 1px solid #334155;">
         <p>© 2026 Esteban ROSA - Portfolio SISR</p>
     </footer>
 
