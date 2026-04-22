@@ -48,7 +48,6 @@
         .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
         .tech-badge { background: #0f172a; border: 1px solid #334155; padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; color: #cbd5e1; }
 
-        /* BOUTON DOCUMENTATION */
         .doc-btn {
             display: inline-block;
             text-align: center;
@@ -67,7 +66,6 @@
             color: var(--bg-color);
         }
 
-        /* CORRECTIONS RESPONSIVE MOBILE */
         @media (max-width: 768px) {
             nav { flex-direction: column; padding: 1rem 5%; gap: 10px; }
             .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
@@ -94,11 +92,10 @@
     </nav>
 
     <section class="container">
-        <h1 class="page-title">Mes Projets</h1>
+        <h1 class="page-title">Mes Réalisations Techniques</h1>
 
         <div class="projects-grid">
             
-            <!-- PROJET 1 : ALSYMEX -->
             <div class="project-card">
                 <div class="project-header">
                     <h3 class="project-title">Déploiement Wi-Fi Sécurisé + Portail Captif</h3>
@@ -114,13 +111,12 @@
                 <a href="doc_wifi_alsymex.pdf" target="_blank" class="doc-btn" style="margin-top: auto;">📄 Voir la documentation</a>
             </div>
 
-            <!-- PROJET 2 : AP CARRIAT (4 MISSIONS) -->
             <div class="project-card">
                 <div class="project-header">
                     <h3 class="project-title">AP : Infrastructure & Services</h3>
                     <span class="project-context">Lycée Carriat</span>
                 </div>
-                <p class="project-desc">Déploiement complet d'une infrastructure d'entreprise en 4 phases : architecture réseau (VLANs), sécurisation (pfSense, OpenVPN), stockage (TrueNAS lié à l'AD) et mise en place d'un ERP (Odoo) avec Load Balancing (Nginx) et BDD (PostgreSQL).</p>
+                <p class="project-desc">Déploiement complet d'une infrastructure d'entreprise : architecture réseau (VLANs), sécurisation (pfSense, OpenVPN), stockage (TrueNAS lié à l'AD) et mise en place d'un cluster ERP (Odoo) avec Load Balancing (Nginx) et PostgreSQL.</p>
                 <div class="tech-stack">
                     <span class="tech-badge">pfSense / OpenVPN</span>
                     <span class="tech-badge">Active Directory</span>
@@ -131,11 +127,10 @@
                     <a href="MISSION_1_AP.pdf" target="_blank" class="doc-btn" style="text-align: left; font-size: 0.85rem;">📄 Mission 1 : Architecture & VLANs</a>
                     <a href="MISSION_2_AP.pdf" target="_blank" class="doc-btn" style="text-align: left; font-size: 0.85rem;">📄 Mission 2 : Routage, VPN & Sécurité</a>
                     <a href="MISSION_3_AP.pdf" target="_blank" class="doc-btn" style="text-align: left; font-size: 0.85rem;">📄 Mission 3 : Serveur NAS & Partages</a>
-                    <a href="MISSION_4_AP.pdf" target="_blank" class="doc-btn" style="text-align: left; font-size: 0.85rem;">📄 Mission 4 : Déploiement ERP Odoo (en cours)</a>
+                    <a href="MISSION_4_AP.pdf" target="_blank" class="doc-btn" style="text-align: left; font-size: 0.85rem;">📄 Mission 4 : Déploiement ERP Odoo</a>
                 </div>
             </div>
 
-            <!-- PROJET 3 : VoIP Asterisk -->
             <div class="project-card">
                 <div class="project-header">
                     <h3 class="project-title">Déploiement VoIP</h3>
